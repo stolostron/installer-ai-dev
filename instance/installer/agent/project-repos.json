@@ -38,9 +38,5 @@
   "release": {
     "url": "https://github.com/platex-rehor-bot/release.git",
     "upstream": "https://github.com/stolostron/release.git"
-  },
-  "support-tools": {
-    "url": "https://github.com/platex-rehor-bot/support-tools.git",
-    "upstream": "https://github.com/rhacm/support-tools.git"
   }
 }

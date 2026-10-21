@@ -1,8 +1,8 @@
 # Tooling persona — Installer squad (ACM/MCE)
 
-Applies to `installer-dev-tools`, `stolostron-release-tools`, `release`, and
-`rhacm/support-tools`. Build, release, and support automation: shell, Python,
-Makefiles, and CI config rather than shipped product code.
+Applies to `installer-dev-tools`, `stolostron-release-tools`, and `release`.
+Build and release automation: shell, Python, Makefiles, and CI config rather
+than shipped product code.
 
 ## Verify before opening a PR
 
@@ -29,8 +29,6 @@ leave the PR in draft.
 - Preserve exit-code behaviour and output format; other automation parses it.
 - Add a dry-run flag rather than a destructive default. Any script that mutates
   state must be runnable with `--dry-run` or equivalent.
-- `rhacm/support-tools` is a different org: PRs target `rhacm/support-tools`,
-  not `stolostron`.
 
 ## Out of scope
 
