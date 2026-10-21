@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+mkdir -p /home/botuser/app
 echo "installer-ai-dev" > /home/botuser/app/.instance-id
 
 # Custom DNF installs must pin UBI repos; Dockerfile repo flags do not carry here.
@@ -17,15 +18,21 @@ echo "installer-ai-dev" > /home/botuser/app/.instance-id
 ENVTEST_STORE=/home/botuser/.local/share/kubebuilder-envtest/k8s
 ENVTEST_VERSIONS="1.35.0 1.30.0 1.25.0"
 
+case "$(uname -m)" in
+  x86_64|amd64)  ENVTEST_ARCH=amd64 ;;
+  aarch64|arm64) ENVTEST_ARCH=arm64 ;;
+  *) echo "WARNING: unsupported arch $(uname -m) for envtest assets" >&2; ENVTEST_ARCH=amd64 ;;
+esac
+
 mkdir -p "${ENVTEST_STORE}"
 for version in ${ENVTEST_VERSIONS}; do
-  target="${ENVTEST_STORE}/${version}-linux-amd64"
+  target="${ENVTEST_STORE}/${version}-linux-${ENVTEST_ARCH}"
   if [ -d "${target}" ]; then
     continue
   fi
 
   tmpdir="$(mktemp -d)"
-  url="https://github.com/kubernetes-sigs/controller-tools/releases/download/envtest-v${version}/envtest-v${version}-linux-amd64.tar.gz"
+  url="https://github.com/kubernetes-sigs/controller-tools/releases/download/envtest-v${version}/envtest-v${version}-linux-${ENVTEST_ARCH}.tar.gz"
 
   if ! curl -fsSL "${url}" -o "${tmpdir}/envtest.tar.gz"; then
     echo "WARNING: no envtest release for ${version}; ${url}" >&2
