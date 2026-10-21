@@ -1,0 +1,10 @@
+workflow: jira-sprint
+source: jira
+envs:
+  - go
+  - slack
+  - container-scan
+claude_md:
+  strategy: ignore
+runtime: claude
+provider: vertex

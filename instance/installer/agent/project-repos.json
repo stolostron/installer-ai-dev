@@ -1,0 +1,46 @@
+{
+  "multiclusterhub-operator": {
+    "url": "https://github.com/platex-rehor-bot/multiclusterhub-operator.git",
+    "upstream": "https://github.com/stolostron/multiclusterhub-operator.git"
+  },
+  "backplane-operator": {
+    "url": "https://github.com/platex-rehor-bot/backplane-operator.git",
+    "upstream": "https://github.com/stolostron/backplane-operator.git"
+  },
+  "discovery": {
+    "url": "https://github.com/platex-rehor-bot/discovery.git",
+    "upstream": "https://github.com/stolostron/discovery.git"
+  },
+  "backplane-must-gather": {
+    "url": "https://github.com/platex-rehor-bot/backplane-must-gather.git",
+    "upstream": "https://github.com/stolostron/backplane-must-gather.git"
+  },
+  "acm-operator-bundle": {
+    "url": "https://github.com/platex-rehor-bot/acm-operator-bundle.git",
+    "upstream": "https://github.com/stolostron/acm-operator-bundle.git"
+  },
+  "mce-operator-bundle": {
+    "url": "https://github.com/platex-rehor-bot/mce-operator-bundle.git",
+    "upstream": "https://github.com/stolostron/mce-operator-bundle.git"
+  },
+  "acm-mce-operator-catalogs": {
+    "url": "https://github.com/platex-rehor-bot/acm-mce-operator-catalogs.git",
+    "upstream": "https://github.com/stolostron/acm-mce-operator-catalogs.git"
+  },
+  "installer-dev-tools": {
+    "url": "https://github.com/platex-rehor-bot/installer-dev-tools.git",
+    "upstream": "https://github.com/stolostron/installer-dev-tools.git"
+  },
+  "stolostron-release-tools": {
+    "url": "https://github.com/platex-rehor-bot/stolostron-release-tools.git",
+    "upstream": "https://github.com/stolostron/stolostron-release-tools.git"
+  },
+  "release": {
+    "url": "https://github.com/platex-rehor-bot/release.git",
+    "upstream": "https://github.com/stolostron/release.git"
+  },
+  "support-tools": {
+    "url": "https://github.com/platex-rehor-bot/support-tools.git",
+    "upstream": "https://github.com/rhacm/support-tools.git"
+  }
+}
