@@ -30,6 +30,18 @@ spec:
     value: dev-bot/Dockerfile.runner
   - name: path-context
     value: .
+  # Conforma requires a source image and the source-build task in the pipeline.
+  - name: build-source-image
+    value: "true"
+  # Non-hermetic on purpose: dev-bot/Dockerfile.runner needs network access for
+  # dnf, git clone (bubblewrap), curl (tini, envtest assets), pip, npm and go
+  # install. Flipping this to "true" breaks the build until the upstream
+  # Dockerfile is made hermetic-capable.
+  - name: hermetic
+    value: "false"
+  # Prefetch the ecosystems Hermeto can lock so SBOM attribution stays accurate.
+  - name: prefetch-input
+    value: '[{"type":"npm","path":"dev-bot/coordinator"},{"type":"gomod","path":"dev-bot/proxy/executor"}]'
   pipelineSpec:
     description: |
       This pipeline is ideal for building multi-arch container images from a Containerfile while maintaining trust after pipeline customization.
