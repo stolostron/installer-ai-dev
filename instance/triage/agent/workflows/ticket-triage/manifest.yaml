@@ -1,0 +1,20 @@
+name: ticket-triage
+type: workflow
+description: Read-only triage of ai-triage tickets — completeness gate and implementation plan
+
+preflight:
+  - 01-triage-candidates.py
+
+provides:
+  claude_md: CLAUDE.md
+
+requires:
+  mcp_servers:
+    - bot-memory
+    - mcp-atlassian
+  env_vars:
+    - BOT_LABEL
+    - BOT_INSTANCE_ID
+  optional_env_vars:
+    - BOT_CONFIG_REPO
+    - SLACK_WEBHOOK_URL
