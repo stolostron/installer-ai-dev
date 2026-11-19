@@ -1,0 +1,10 @@
+workflow: ./workflows/pr-lifecycle
+source: jira
+envs:
+  - go
+  - slack
+claude_md:
+  strategy: ignore
+runtime: claude
+provider: vertex
+model: claude-sonnet-4-6
