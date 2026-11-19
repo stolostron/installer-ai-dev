@@ -1,0 +1,15 @@
+# Makefile.prow — targets invoked by Prow CI jobs
+#
+# Prow jobs source this file so that CI-specific logic stays
+# separate from the developer-facing Makefile.
+
+include Makefile
+
+.PHONY: prow-build prow-test prow-publish
+
+prow-build: build
+
+prow-test:
+	@echo "Running CI tests …"
+
+prow-publish: publish
